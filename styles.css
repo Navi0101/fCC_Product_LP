@@ -1,0 +1,182 @@
+#nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; 
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-right: 2px solid #4d4dff;
+  background-color: #121212;
+  z-index: 2;
+}
+
+/*Turning the links to neon purple :D */
+.nav-link {
+  color: #9400d3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  margin: 45px
+}
+
+.nav-link:hover {
+  color: #39ff14;
+}
+
+/*I'm doing a dark background b/c I want a neon theme*/
+body {
+  background-color: #121212;
+  color: #fff; /*default text color*/
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-left: 220px; /*Giving room for the nav bar to prevent overlapping*/
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #121212;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+/*To center the logo*/
+#header-img {
+  max-width: 750px;
+  height: auto;
+}
+
+#video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/*Adding a glow around the vid and giving it some space so it's not against the text*/
+.video-container {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #121212;
+  box-shadow: 0 0 15px #9400d3, 0 0 30px #9400d3;
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+/*Creating a pulsating effect for the video. Increasing and decreasing the glow effect.*/
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px #9400d3, 0 0 30px #4d4dff;
+  }
+  50% {
+    box-shadow: 0 0 25px #9400d3, 0 0 45px #39ff14;
+  }
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+/*Style for product boxes*/
+.product-box {
+  display: flex;
+  flex-direction: column; 
+  background-color: #222;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  width: 250px;
+  text-align: center;
+  position: relative;
+  box-shadow:0 0 15px rgba(255, 24, 24, 0.9);
+  transition: 0.3s ease;
+}
+
+.product-box:hover {
+  box-shadow: 0 0 20px #9400d3, 0 0 40px #39ff14;
+}
+
+.info-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  color: #39ff14;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.info-button:hover {
+  color: #9400d3;
+  text-shadow: 0 0 5px #39ff14;
+}
+
+.purchase-btn {
+  font-size: 16px;
+  color: #121212;
+  background-color: #cfaa01;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.purchase-btn:hover {
+  background-color: #4f34fe;
+  color: #fff;
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+}
+
+/*media query to adjust webite for smallers screens. here I use 1,000 pixels as the screen size because I like it this way :) */
+@media (max-width: 1000px) {
+  /*Adjust the nav-bar to horizontal and at the top of the page*/
+  #nav-bar {
+    position: static; /*takes fixed positioning away*/
+    width: 100vh; /*stretches it to full screen*/
+    height: auto; /*adjusts based on content*/
+    display: flex;
+    flex-direction: row; /*makes links have horizontal layout*/
+    justify-content: space-around; /*even spacing for links*/
+    padding: 10px; /*spacing around links*/
+    border-right: none;
+    border-bottom: 2px solid #4d4dff; /*adds botom border*/ 
+  }
+
+  /*gives spacing on both sides to keep everything from being smushed along the edges of the page.*/
+  body {
+    padding-left: 30px; 
+    padding-right: 30px;
+  }
+
+  /*adjust logo size*/
+  #header-img {
+    max-width: 95%;
+    height: auto;
+  }
+
+  /*Stacks product boxes vertically*/
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-box {
+    width: 100%; /*whole width for small screens*/
+    max-width: 300px;
+    margin: 10px 0; /*adjusts the spacing for the new stacked layout*/
+  }
+}
